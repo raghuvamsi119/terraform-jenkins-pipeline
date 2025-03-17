@@ -7,15 +7,17 @@ pipeline {
     }
 
     environment {
-        AWS_ACCESS_KEY_ID     = credentials('aws-access-key-id')
-        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
-        AWS_DEFAULT_REGION    = 'ap-south-1'
+        ARM_CLIENT_ID       = '1955edbb-79f8-4cc0-8ddb-2a465ff3e70d'  // Your App ID (Client ID)
+        ARM_CLIENT_SECRET   = 'cjC8Q~vE0B_Yo4kQrQJQuwCH__bI5zdem8Wy0c6V'  // Your Secret (Client Secret)
+        ARM_SUBSCRIPTION_ID = '79a60dcf-4a07-480c-b5d2-77180e854c82'  // Your Subscription ID
+        ARM_TENANT_ID       = '0bca7ac3-fcb6-4efd-89eb-6de97603cf21'  // Your Tenant ID
+    }
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/CodeSagarOfficial/jenkins-scripts.git'
+                git branch: 'main', url: 'https://github.com/raghuvamsi119/terraform-jenkins-pipeline.git'
             }
         }
         stage('Terraform init') {
